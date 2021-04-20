@@ -1,0 +1,23 @@
+{
+  "name": "10-team-profile-generator",
+  "version": "1.0.0",
+  "description": "Homework 10",
+  "main": "index.js",
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashak90/10-team-profile-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashak90/10-team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/ashak90/10-team-profile-generator#readme"
+}
