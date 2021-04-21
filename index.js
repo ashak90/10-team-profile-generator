@@ -4,6 +4,7 @@ const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
 const Manager = require("./lib/Manager");
 const style = require("./assets/style");
+const employees = [];
 
 function init() {
   // inquirer
@@ -46,28 +47,45 @@ function addMember() {
       // },
     ])
     .then(function ({ name, role, id, email }) {
-        let roleSpecs = "";
-        if (role === "Engineer"){
-            roleSpecs = "Github username";
-        } else if (role === "Intern"){
-            roleSpecs = "school name"
-        } else {
-            roleSpecs = "office phone number"
-        }
-        inquirer.prompt([{
+      let roleSpecs = "";
+      if (role === "Engineer") {
+        roleSpecs = "Github username";
+      } else if (role === "Intern") {
+        roleSpecs = "school name";
+      } else {
+        roleSpecs = "office phone number";
+      }
+      inquirer
+        .prompt([
+          {
             message: `Enter the team member's ${roleSpecs}: `,
-            name: "role Specs"
-        },
-        {
-            type:  "list",
-            name: "more members",
+            name: "roleSpecs",
+          },
+          {
+            type: "list",
+            name: "moreMembers",
             message: "Would you like to add more team member's",
-            choices: [
-                "Yes",
-                "No"
-            ],
-        }
-    ])
+            choices: ["Yes", "No"],
+          },
+        ])
+        .then(function ({ roleSpecs, moreMembers }) {
+          let newMember;
+          if (role === "Engineer") {
+            newMember = new Engineer(name, id, email, roleSpecs);
+          } else if (role === "Intern") {
+            newMember = new Intern(name, id, email, roleSpecs);
+          } else {
+            newMember = new Manager(name, id, email, roleSpecs);
+          }
+          employees.push(newMember);
+          addHtml(newMember).then(function () {
+            if (moreMembers === "yes") {
+              addMember();
+            } else {
+              completeHtml();
+            }
+          });
+        });
     });
 }
 
@@ -89,6 +107,74 @@ function startHtml() {
             <div class="row">`;
 
   fs.writeFile("./output/teamprofile.html", creatHtml, function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+  console.log("Generating Team Profile");
+}
+
+function addHtml(member) {
+  return new Promise(function (resolve, reject) {
+    const name = member.getName();
+    const role = member.getRole();
+    const id = member.getId();
+    const email = member.getEmail();
+    let data = "";
+    if (role === "Engineer") {
+      const gitHub = member.getGithub();
+      data = `<div class="col-6">
+            <div class="card mx-auto mb-3" style="width: 18rem">
+            <h5 class="card-header">${name}<br /><br />Engineer</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${id}</li>
+                <li class="list-group-item">Email Address: ${email}</li>
+                <li class="list-group-item">GitHub: ${gitHub}</li>
+            </ul>
+            </div>
+        </div>`;
+    } else if (role === "Intern") {
+      const school = member.getSchool();
+      data = `<div class="col-6">
+            <div class="card mx-auto mb-3" style="width: 18rem">
+            <h5 class="card-header">${name}<br /><br />Intern</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${id}</li>
+                <li class="list-group-item">Email Address: ${email}</li>
+                <li class="list-group-item">School: ${school}</li>
+            </ul>
+            </div>
+        </div>`;
+    } else {
+      const officePhone = member.getOfficeNumber();
+      data = `<div class="col-6">
+            <div class="card mx-auto mb-3" style="width: 18rem">
+            <h5 class="card-header">${name}<br /><br />Manager</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${id}</li>
+                <li class="list-group-item">Email Address: ${email}</li>
+                <li class="list-group-item">Office Phone: ${officePhone}</li>
+            </ul>
+            </div>
+        </div>`;
+    }
+    console.log("adding team member");
+    fs.appendFile("./output/teamprofile.html", data, function (err) {
+      if (err) {
+        return reject(err);
+      }
+      return resolve();
+    });
+  });
+}
+
+function completeHtml() {
+  const html = `</div>
+    </div
+</body>
+</html>`;
+
+fs.appendFile("./output/teamprofile.html", html, function (err) {
     if (err) {
       console.log(err);
     }
