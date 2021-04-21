@@ -5,8 +5,30 @@ const questions = [
     {
         type: "input",
         name: "name",
-        message: "Enter the employee's name:",
+        message: "Enter the team member's name:",
+    },
+    {
+        type: "list",
+        name: "role",
+        message:"Select the team member's role:",
+        choices: [
+            "Intern",
+            "Employee",
+            "Engineer",
+            "Manager" 
+        ]
+    },
+    {
+        type:"input",
+        name:"id",
+        message:"Enter team member's email address:",
+    },
+    {
+        type:"input",
+        name:"email",
+        message:"Enter team member's id:",
     }
+
 ]
 
 function init(){
