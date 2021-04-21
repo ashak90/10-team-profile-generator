@@ -20,14 +20,19 @@ const questions = [
     },
     {
         type:"input",
+        name:"email",
+        message:"Enter team member's id:",
+    },
+    {
+        type:"input",
         name:"id",
         message:"Enter team member's email address:",
     },
     {
         type:"input",
-        name:"email",
-        message:"Enter team member's id:",
-    }
+        name:"id",
+        message:"Enter team member's email address:",
+    },
 
 ]
 
