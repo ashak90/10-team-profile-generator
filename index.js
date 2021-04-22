@@ -125,7 +125,7 @@ function addHtml(answer) {
       const gitHub = answer.getGithub();
      data =` <div class="col-6">
      <div class="card mx-auto mb-3" style="width: 18rem">
-     <h5 class="card-header">${name}<br /><br />Engineer</h5>
+     <h5 class="card-header">${name}<br /><br />${role}</h5>
      <ul class="list-group list-group-flush">
          <li class="list-group-item">ID: ${id}</li>
          <li class="list-group-item">Email Address: ${email}</li>
@@ -137,7 +137,7 @@ function addHtml(answer) {
       const school = answer.getSchool();
       data = `<div class="col-6">
       <div class="card mx-auto mb-3" style="width: 18rem">
-      <h5 class="card-header">${name}<br /><br />Engineer</h5>
+      <h5 class="card-header">${name}<br /><br />${role}</h5>
       <ul class="list-group list-group-flush">
           <li class="list-group-item">ID: ${id}</li>
           <li class="list-group-item">Email Address: ${email}</li>
@@ -149,7 +149,7 @@ function addHtml(answer) {
       const officePhone = answer.getOfficeNumber();
       data = `<div class="col-6">
       <div class="card mx-auto mb-3" style="width: 18rem">
-      <h5 class="card-header">${name}<br /><br />Engineer</h5>
+      <h5 class="card-header">${name}<br /><br />${role}</h5>
       <ul class="list-group list-group-flush">
           <li class="list-group-item">ID: ${id}</li>
           <li class="list-group-item">Email Address: ${email}</li>
