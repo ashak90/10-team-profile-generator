@@ -130,9 +130,9 @@ function addHtml(answer) {
          <li class="list-group-item">ID: ${id}</li>
          <li class="list-group-item">Email Address:<a href="mailto:${email}"> ${email} </a> </li>
          <li class="list-group-item">GitHub: <a href="https://github.com/${gitHub}" target="_blank">${gitHub}</a></li>
-            </ul> 
-            </div>
-        </div>`;
+      </ul> 
+      </div>
+      </div>`;
     } else if (role === "Intern") {
       const school = answer.getSchool();
       data = `<div class="col-6">
@@ -140,23 +140,24 @@ function addHtml(answer) {
       <h5 class="card-header">${name}<br /><br />${role}</h5>
       <ul class="list-group list-group-flush">
           <li class="list-group-item">ID: ${id}</li>
-          <li class="list-group-item"><a href="mailto:${email}"> ${email}</li>
+          <li class="list-group-item"><a href="mailto:${email}"> ${email}</a> </li>
           <li class="list-group-item">School: ${school}</li>
       </ul>
       </div>
-        </div>`;
+     </div>`;
     } else {
       const officePhone = answer.getOfficeNumber();
-      data = `<div class="col-6">
+      data = `
+      <div class="col-6">
       <div class="card mx-auto mb-3" style="width: 18rem">
       <h5 class="card-header">${name}<br /><br />${role}</h5>
       <ul class="list-group list-group-flush">
           <li class="list-group-item">ID: ${id}</li>
-          <li class="list-group-item"><a href="mailto:${email}"> ${email}</li>
-                <li class="list-group-item">Office Phone: ${officePhone}</li>
-            </ul>
-            </div>
-        </div>`;
+          <li class="list-group-item"><a href="mailto:${email}"> ${email}</a></li>
+          <li class="list-group-item">Office Phone: ${officePhone}</li>
+      </ul>
+      </div>
+    </div>`;
     }
     console.log("Adding another team member");
     fs.appendFile("./output/teamprofile.html",data , function (err) {
