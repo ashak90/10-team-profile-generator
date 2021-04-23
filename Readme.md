@@ -9,7 +9,7 @@
 
   ## Table of Contents
 
-  * [Walkthrough Video](#walthrough-video)
+  * [Videos](#walthrough-video)
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license) 
@@ -19,10 +19,10 @@
 
   **
 
-  ## Walkthrogh Video 
+  ## Videos
 
-  [Click here to be redirected to YouTube.](https://youtu.be/8oXayZUPZKM)
-
+  [Walkthrough Video](https://youtu.be/8oXayZUPZKM)
+  [Testing Video](https://youtu.be/Q4IrPTrQjyU)
 
   ## Installation 
   To install this project: first download all of the files in this repository. Then open those files in VS code. Run the terminal in VS code. Be sure you are targeting the current directory and then run npm install or npm i inquirer and npm install or npm i inquirer. Inquirer is required to run the code in the terminal and jest is needed to completed the tests.
