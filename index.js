@@ -28,7 +28,7 @@ function addMember() {
         type: "list",
         name: "role",
         message: "Select the team member's role:",
-        choices: ["Intern", "Employee", "Engineer", "Manager"],
+        choices: ["Intern", "Engineer", "Manager"],
       },
       {
         type: "input",
@@ -128,9 +128,9 @@ function addHtml(answer) {
      <h5 class="card-header">${name}<br /><br />${role}</h5>
      <ul class="list-group list-group-flush">
          <li class="list-group-item">ID: ${id}</li>
-         <li class="list-group-item">Email Address: ${email}</li>
+         <li class="list-group-item">Email Address:<a href="mailto:${email}"> ${email} </a> </li>
          <li class="list-group-item">GitHub: <a href="https://github.com/${gitHub}" target="_blank">${gitHub}</a></li>
-            </ul>
+            </ul> 
             </div>
         </div>`;
     } else if (role === "Intern") {
@@ -140,7 +140,7 @@ function addHtml(answer) {
       <h5 class="card-header">${name}<br /><br />${role}</h5>
       <ul class="list-group list-group-flush">
           <li class="list-group-item">ID: ${id}</li>
-          <li class="list-group-item">Email Address: ${email}</li>
+          <li class="list-group-item"><a href="mailto:${email}"> ${email}</li>
           <li class="list-group-item">School: ${school}</li>
       </ul>
       </div>
@@ -152,7 +152,7 @@ function addHtml(answer) {
       <h5 class="card-header">${name}<br /><br />${role}</h5>
       <ul class="list-group list-group-flush">
           <li class="list-group-item">ID: ${id}</li>
-          <li class="list-group-item">Email Address: ${email}</li>
+          <li class="list-group-item"><a href="mailto:${email}"> ${email}</li>
                 <li class="list-group-item">Office Phone: ${officePhone}</li>
             </ul>
             </div>
