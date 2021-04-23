@@ -140,7 +140,7 @@ function addHtml(answer) {
       <h5 class="card-header">${name}<br /><br />${role}</h5>
       <ul class="list-group list-group-flush">
           <li class="list-group-item">ID: ${id}</li>
-          <li class="list-group-item"><a href="mailto:${email}"> ${email}</a> </li>
+          <li class="list-group-item">Email Address:<a href="mailto:${email}"> ${email}</a> </li>
           <li class="list-group-item">School: ${school}</li>
       </ul>
       </div>
@@ -153,7 +153,7 @@ function addHtml(answer) {
       <h5 class="card-header">${name}<br /><br />${role}</h5>
       <ul class="list-group list-group-flush">
           <li class="list-group-item">ID: ${id}</li>
-          <li class="list-group-item"><a href="mailto:${email}"> ${email}</a></li>
+          <li class="list-group-item">Email Address:<a href="mailto:${email}"> ${email}</a></li>
           <li class="list-group-item">Office Phone: ${officePhone}</li>
       </ul>
       </div>
