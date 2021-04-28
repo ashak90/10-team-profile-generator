@@ -159,7 +159,7 @@ function addHtml(answer) {
       </div>
     </div>`;
     }
-    console.log("Adding another team member");
+    console.log("Compiling the team profile.");
     fs.appendFile("./output/teamprofile.html",data , function (err) {
       if (err) {
         return reject(err);
@@ -180,7 +180,7 @@ function completeHtml() {
       console.log(err);
     }
   });
-  console.log("start");
+  console.log("All done!");
 }
 
 init();
